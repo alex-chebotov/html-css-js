@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Form validation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form>
+            <div>
+                <label for="fname">First name: </label>
+                <input id="fname" type="text">
+            </div>
+            <div>
+                <label for="lname">Last name: </label>
+                <input id="lname" type="text">
+            </div>
+            <div>
+                <input id="submit" type="submit">
+            </div>
+        </form>
+        <p></p>
+    </body>
+    <script>
+        var form = document.querySelector('form');
+        var fname = document.getElementById('fname');
+        var lname = document.getElementById('lname');
+        var submit = document.getElementById('submit');
+        var para = document.querySelector('p');
+
+        form.onsubmit = function (e) {
+            if (fname.value === '' || lname.value === '') {
+                e.preventDefault();
+                para.textContent = 'You need to fill in both names!';
+            }
+        };
+    </script>
+</html>

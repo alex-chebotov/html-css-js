@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <!--    Below the // number 1 comment are a number of strings, each one containing a product name and price separated by a colon. We'd like you to turn this into an array and store it in an array called products.
+            On the same line as the // number 2 comment is the beginning of a for loop. In this line we currently have i <= 0, which is a conditional test that causes the for loop to stop immediately, because it is saying "stop when i is no longer less than or equal to 0", and i starts at 0. We'd like you to replace this with a conditional test that stops the loop when i is no longer less than the products array's length.
+            Just below the // number 3 comment we want you to write a line of code that splits the current array item (name:price) into two separate items, one containing just the name and one containing just the price. If you are not sure how to do this, consult the Useful string methods article for some help, or even better, look at the Converting between strings and arrays section of this article.
+            As part of the above line of code, you'll also want to convert the price from a string to a number. If you can't remember how to do this, check out the first strings article.
+            There is a variable called total that is created and given a value of 0 at the top of the code. Inside the loop (below // number 4) we want you to add a line that adds the current item price to that total in each iteration of the loop, so that at the end of the code the correct total is printed onto the invoice. You might need an assignment operator to do this.
+            We want you to change the line just below // number 5 so that the itemText variable is made equal to "current item name — $current item price", for example "Shoes — $23.99" in each case, so the correct information for each item is printed on the invoice. This is just simple string concatenation, so you should be OK with this.-->
+        <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays -->
+
+        <div class="output" style="min-height: 150px;">
+
+            <ul>
+
+            </ul>
+
+            <p></p>
+
+        </div>
+
+        <textarea id="code" class="playable-code" style="height: 370px;">
+            var list = document.querySelector('.output ul');
+            var totalBox = document.querySelector('.output p');
+            var total = 0;
+            list.innerHTML = '';
+            totalBox.textContent = '';
+            // number 1
+                            'Underpants:6.99'
+                            'Socks:5.99'
+                            'T-shirt:14.99'
+                            'Trousers:31.99'
+                            'Shoes:23.99';
+
+            for(var i = 0; i <= 0; i++) { // number 2
+              // number 3
+
+              // number 4
+
+              // number 5
+              itemText = 0;
+
+              var listItem = document.createElement('li');
+              listItem.textContent = itemText;
+              list.appendChild(listItem);
+            }
+
+            totalBox.textContent = 'Total: $' + total.toFixed(2);
+        </textarea>
+
+        <div class="playable-buttons">
+            <input id="reset" type="button" value="Reset">
+            <input id="solution" type="button" value="Show solution">
+        </div>
+
+    </body>
+    <script>
+        var textarea = document.getElementById("code");
+        var reset = document.getElementById("reset");
+        var solution = document.getElementById("solution");
+        var code = textarea.value;
+
+        function updateCode() {
+
+            eval(textarea.value);
+        }
+
+        reset.addEventListener("click", function () {
+            textarea.value = code;
+            updateCode();
+        });
+
+        solution.addEventListener("click", function () {
+            textarea.value = jsSolution;
+            updateCode();
+        });
+
+        var jsSolution = 'var list = document.querySelector(\'.output ul\');\nvar totalBox = document.querySelector(\'.output p\');\nvar total = 0;\nlist.innerHTML = \'\';\ntotalBox.textContent = \'\';\n\nvar products = [\'Underpants:6.99\',\n                \'Socks:5.99\',\n                \'T-shirt:14.99\',\n                \'Trousers:31.99\',\n                \'Shoes:23.99\'];\n\nfor(var i = 0; i < products.length; i++) {\n  var subArray = products[i].split(\':\');\n  var name = subArray[0];\n  var price = Number(subArray[1]);\n  total += price;\n  itemText = name + \' — $\' + price;\n\n  var listItem = document.createElement(\'li\');\n  listItem.textContent = itemText;\n  list.appendChild(listItem);\n}\n\ntotalBox.textContent = \'Total: $\' + total.toFixed(2);';
+
+        textarea.addEventListener("input", updateCode);
+        window.addEventListener("load", updateCode);
+
+    </script>
+</html>

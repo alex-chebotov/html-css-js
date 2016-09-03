@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Useful_string_methods -->
+
+    <div class="output" style="min-height: 125px;">
+
+        <ul>
+
+        </ul>
+
+    </div>
+
+    <textarea id="code" class="playable-code" style="height: 290px;">
+        var list = document.querySelector('.output ul'); list.innerHTML = ''; var greetings = ['Happy Birthday!', 'Merry Christmas my love', 'A happy Christmas to all the family', 'You\'re all I want for Christmas', 'Get well soon']; for(var i = 0; i
+        < greetings.length; i++) { var input=g reetings[i]; // Your conditional test needs to go inside the parentheses // in the line below, replacing what 's currently there
+  if(greetings[i]) {
+    var result = input;
+    var listItem = document.createElement('li ');
+    listItem.textContent = result;
+    list.appendChild(listItem);
+  }
+}
+        </textarea>
+
+        <div class="playable-buttons">
+            <input id="reset" type="button" value="Reset">
+            <input id="solution" type="button" value="Show solution">
+        </div>
+
+    </body>
+    <script src="index3.js">
+
+    </script>
+</html>
